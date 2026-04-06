@@ -1,0 +1,26 @@
+nome = ""
+idade = ""
+
+while True:
+    mensagem = input("Você: ").lower()
+
+    if "oi" in mensagem:
+        if nome:
+            print(f"Bot: Oi {nome}! Tudo bem?")
+        else:
+            print("Bot: Oi! Tudo bem?")
+        
+    elif "meu nome é" in mensagem:
+        nome = mensagem.replace("meu nome é", "").strip()
+        print(f"Bot: Prazer em te conhecer, {nome}!")
+        
+    elif "tenho" in mensagem and "anos" in mensagem:
+        idade = mensagem.replace("tenho", "").replace("anos", "").strip()
+        print(f"Bot: Nossa, {idade} anos! Que legal!")
+        
+    elif "tchau" in mensagem:
+        print("Bot: Até mais!")
+        break
+        
+    else:
+        print("Bot: Não entendi, pode repetir?")
