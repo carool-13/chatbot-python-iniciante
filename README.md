@@ -1,85 +1,96 @@
 # 🌙 Chatbot Interativo — Tech Journey
 
-Este projeto é um chatbot desenvolvido em Python utilizando a API da OpenAI.
-Ele simula um assistente virtual com respostas inteligentes e personalizadas.
+## Sobre o projeto
+
+Este projeto consiste em um chatbot desenvolvido em Python com funcionamento híbrido:
+
+* Respostas baseadas em regras (if/elif)
+* Integração com API da OpenAI
+* Tratamento de falhas da API (fallback)
+
+O objetivo é simular um assistente virtual capaz de manter uma conversa básica e evoluir para respostas inteligentes utilizando IA.
 
 ---
 
-##  Funcionalidades
+## Funcionalidades
 
-* Interação via terminal
-* Reconhecimento de nome e idade do usuário
-* Integração com API de Inteligência Artificial
-* Respostas dinâmicas e personalizadas
+* 👋 Reconhecimento de saudação
+* 🧑 Captura de nome do usuário
+* 🎂 Identificação de idade com Regex
+* 🤖 Integração com IA (OpenAI)
+* ⚠️ Tratamento de erro quando a API não está disponível
 
 ---
 
-##  Tecnologias utilizadas
+## Tecnologias utilizadas
 
 * Python 3.12
 * OpenAI API
-* Ambiente virtual (venv)
+* Regex (`re`)
+* dotenv
 
 ---
 
-##  Estrutura do projeto
+## ▶️ Como executar
 
-```
-chatbot-python-iniciante/
-│
-├── src/
-│   ├── main.py
-│   ├── teste_api.py
-│
-├── venv/
-├── README.md
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/carool-13/chatbot-openai-python.git
 ```
 
----
+2. Acesse a pasta:
 
-##  Como executar o projeto
-
-Clone o repositório:
-
-```
-git clone https://github.com/carool-13/chatbot-python-iniciante
-cd chatbot-python-iniciante
+```bash
+cd chatbot-openai-python
 ```
 
-Crie e ative o ambiente virtual:
+3. Crie um arquivo `.env`:
 
-```
-python -m venv venv
-venv\Scripts\activate
-```
-
-Instale as dependências:
-
-```
-pip install openai
+```env
+OPENAI_API_KEY=sua_chave_aqui
 ```
 
-Configure sua API Key:
+4. Instale as dependências:
 
-```
-setx OPENAI_API_KEY "SUA_CHAVE_AQUI"
+```bash
+pip install -r requirements.txt
 ```
 
-Execute o projeto:
+5. Execute o projeto:
 
-```
+```bash
 python src/main.py
 ```
 
 ---
 
-##  Objetivo
+## Segurança
 
-Este projeto foi desenvolvido com foco em aprendizado de integração com APIs e desenvolvimento de chatbots utilizando inteligência artificial.
+O arquivo `.env` não é versionado para proteger a chave da API.
 
 ---
 
-## 👩‍💻 Autora
+## Decisões técnicas
+
+* Uso de `.strip()` para evitar erros de entrada do usuário
+* Regex para identificação de idade
+* Estrutura híbrida para evitar chamadas desnecessárias à API
+* Tratamento de exceções para garantir funcionamento mesmo sem IA
+
+---
+
+## Melhorias futuras
+
+* Histórico de conversa
+* Interface gráfica (Streamlit ou Web)
+* Melhor interpretação de linguagem natural
+* Deploy do projeto
+
+---
+
+## Autora
 
 Carolyne Cristine
-
+Estudante de Gestão de TI
+Interesse em QA e Inteligência Artificial
