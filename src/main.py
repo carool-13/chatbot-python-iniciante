@@ -1,10 +1,17 @@
+import re
+
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # ESSENCIAL
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 nome = ""
 idade = ""
+
+# COMANDOS DE CONSTRUÇÃO DE IA ANTIGA (SEM API)
 
 while True:
     mensagem = input("Você: ").lower()
@@ -19,18 +26,18 @@ while True:
         nome = mensagem.replace("meu nome é", "").strip()
         print(f"Bot: Prazer em te conhecer, {nome}!Qual é a sua idade?")
         
-    elif "tenho" in mensagem and "anos" in mensagem:
-        idade = mensagem.replace("tenho", "").replace("anos", "").strip()
+    elif re.search(r'\b\d{1,3}\b', mensagem):
+        idade = re.search(r'\b\d{1,3}\b', mensagem).group()
         print(f"Bot: Nossa, apenas {idade} anos. Fico feliz que você seja tão jovem ainda! O que você deseja saber?")
         
     elif "tchau" in mensagem:
         print("Bot: Até mais!")
         break
         
-else:
-    # construção de IA no projeto (API nova)
+    else:
+        # CONSTRUÇÃO DE IA NO PROJETO (API NOVA)
 
-    contexto = f"""
+        contexto = f"""
 Você é um assistente virtual que representa Carolyne Cristine.
 
 Informações:
@@ -42,9 +49,13 @@ Responda de forma clara, profissional e amigável.
 Se o usuário já informou o nome, use ele: {nome}
 """
 
-    response = client.responses.create(
-        model="gpt-4.1-mini",
-        input=contexto + f"\nUsuário: {mensagem}"
-    )
+        try:
+            response = client.responses.create(
+                model="gpt-4.1-mini",
+                input=contexto + f"\nUsuário: {mensagem}"
+            )
 
-    print("Bot:", response.output_text)
+            print("Bot:", response.output_text)
+
+        except Exception:
+            print("Bot: Nosso sistema de IA está em construção no momento, tente novamente mais tarde.")
