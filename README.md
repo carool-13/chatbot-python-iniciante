@@ -14,11 +14,11 @@ O objetivo é simular um assistente virtual capaz de manter uma conversa básica
 
 ## Funcionalidades
 
-* 👋 Reconhecimento de saudação
-* 🧑 Captura de nome do usuário
-* 🎂 Identificação de idade com Regex
-* 🤖 Integração com IA (OpenAI)
-* ⚠️ Tratamento de erro quando a API não está disponível
+*  Reconhecimento de saudação
+*  Captura de nome do usuário
+*  Identificação de idade com Regex
+*  Integração com IA (OpenAI)
+*  Tratamento de erro quando a API não está disponível
 
 ---
 
