@@ -8,7 +8,7 @@ Este projeto consiste em um chatbot desenvolvido em Python com funcionamento hí
 * Integração com API da OpenAI
 * Tratamento de falhas da API (fallback)
 
-O objetivo é simular um assistente virtual capaz de manter uma conversa básica e evoluir para respostas inteligentes utilizando IA.
+O objetivo é simular um assistente virtual capaz de manter uma conversa básica e evoluir para respostas inteligentes utilizando IA sobre o meu currículo.
 
 ---
 
